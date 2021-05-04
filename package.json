@@ -1,0 +1,44 @@
+{
+  "devDependencies": {
+    "@symfony/stimulus-bridge": "^2.0.0",
+    "@symfony/webpack-encore": "^1.0.0",
+    "core-js": "^3.0.0",
+    "regenerator-runtime": "^0.13.2",
+    "stimulus": "^2.0.0",
+    "webpack-notifier": "^1.6.0"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "bootstrap": "^4.6.0",
+    "eslint": "^7.25.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-vue": "^7.9.0",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "name": "symfony4",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoanparashkevov/symfony4.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/antoanparashkevov/symfony4/issues"
+  },
+  "homepage": "https://github.com/antoanparashkevov/symfony4#readme",
+  "description": ""
+}

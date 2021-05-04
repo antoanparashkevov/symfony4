@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Offer{% endblock %}
+
+{% block body %}
+    {{ include('offer/_form.html.twig') }}
+    <a class="btn btn-primary" href="{{ path('offer_index') }}">Back</a>
+{% endblock %}

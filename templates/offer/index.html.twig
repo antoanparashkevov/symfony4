@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Welcome! {% endblock %}
+
+{% block body %}
+
+    {# <table class="table"> #}
+        {# <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Slug</th>
+                <th>Description</th>
+                <th>Final_price</th>
+                <th>actions</th>
+            </tr>
+        </thead> #}
+        {# <tbody> #}
+        {# {% for offer in offers %}
+            <tr>
+                <td>{{ offer.id }}</td>
+                <td>{{ offer.name }}</td>
+                <td>{{ offer.slug }}</td>
+                <td>{{ offer.description }}</td>
+                <td>{{ offer.finalPrice }}</td>
+                <td>
+                    <a href="{{ path('offer_show', {'id': offer.id}) }}">show</a>
+                    <a href="{{ path('offer_edit', {'id': offer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %} #}
+        {# </tbody> #}
+    {# </table> #}
+     
+
+    <div class="jumbotron-img jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Оur offers for you</h1>
+        <p class="lead">Find the best offer for you or create one</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <a class="btn btn-secondary" href="{{ path('offer_new') }}">Create an offer</a>
+        </div>
+        {% for offer in offers %}
+    </div>
+    
+    <div class="row">
+            <div class="col-12">
+                <div class="shadow-sm">
+                    <div class="q-container p-4">
+                        <div class="row">
+                            <div class="col-2 text-center">
+                                <img src="/images/bricks.png" width="100" height="100">
+                               
+                            </div>
+    
+                            <div class="d-flex flex-column flex-md-column mt-2 ml-5 ml-md-2">
+                                    
+                                 <a  href="{{ path('offer_show', {'id': offer.id}) }}" class="title-show row text-dark ml-3 ml-md-2"><h2>{{ offer.name }}</h2></a>
+                                <div class="display-show p-3 ml-3 ml-md-2">
+                                    <p class="d-inline row">{{offer.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h2><strong class="text-danger">No offers avaivable</strong></h2>
+            {% endfor %}
+            </div>
+            </div>
+        </div>
+    </div> 
+{% endblock %}
