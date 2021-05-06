@@ -9,10 +9,19 @@
 import './styles/app.css';
 
 import Vue from 'vue';
-// import App from './App.vue'
 
+// import VueRouter from 'vue-router';
 import App from './Form.vue';
-
+// Vue.use(VueRouter);
+// export default new VueRouter({
+//     mode:"history",
+//     routers:[
+//         {
+//             path:"/",
+//             component:example
+//         }
+//     ]
+// })
 
 new Vue({
 el:'#app',
@@ -22,5 +31,6 @@ components:{App}
 
 // start the Stimulus application
 import './bootstrap';
+
 // import { VueLoaderPlugin } from 'vue-loader';
 
