@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Entity;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\OfferRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=OfferRepository::class)
  */
+#[ApiResource]
 class Offer
 {
     /**

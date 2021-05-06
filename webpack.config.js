@@ -64,17 +64,17 @@ Encore
 
     // uncomment if you use React
     //.enableReactPreset()
-    .addLoader({
-        enforce:'pre',
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
-        options: {
-            fix: true,
-            emitError: true,
-            emitWarning: true,
-        },
-    })
+    // .addLoader({
+    //     enforce:'pre',
+    //     test: /\.(js|vue)$/,
+    //     loader: 'eslint-loader',
+    //     exclude: /node_modules/,
+    //     options: {
+    //         fix: true,
+    //         emitError: true,
+    //         emitWarning: true,
+    //     },
+    // })
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
