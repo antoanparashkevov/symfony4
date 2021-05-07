@@ -20,21 +20,26 @@
             </header>
             <div class="container p-4">
                 <div class="row">
+                    <h1>new text</h1>
                             <div class="d-flex flex-column flex-md-column mt-2 ml-5 ml-md-2">
                                     <ul   
-                                    v-for="cat in category"
-                                    :key="cat"
+                                  class="list-group-item"
+                                    >
+                                <li  v-for="(cat,i) in categories"
+                                    :key="i"
                                     class="list-group list-group-flush"
                                     >
-                                <li class="list-group-item">
                                     <strong>
                                     {{cat.name}}
                                     
-                                    <input type="number" :value=cat.quantity> кв.м
+                                    
+                                    <input type="number" v-model="cat.quantity"> кв.м
                                 
-                                    <input type="number" :disabled=isDisabled :value=cat.price> лв.
+                                    <input type="number" :disabled="true" :value="cat.quantity * cat.one_cat_price"> лв.
                                     
                                     </strong>
+
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -63,7 +68,7 @@ export default {
     },
     data(){
     return{
-        category:null,
+        categories:[],
         firstName:"Antoan",
         isLoading:true,
         isError:false,
@@ -73,10 +78,16 @@ export default {
     mounted(){
     
         // this.loadOffers();
+        let self = this;
         axios
         .get("/api/categories.json")
-        .then(response => 
-            (this.category = response.data))
+        .then(response => {
+            response.data.forEach(element => {
+                console.log(element);
+                element.one_cat_price = element.price / element.quantity;
+                self.categories.push(element)
+            });
+        })
         .catch(error => {
             console.log(error)
             this.isError = true
@@ -84,6 +95,9 @@ export default {
         .finally(() =>this.isLoading = false)
        
         
+},
+methods:{
+
 }
 }
 </script>
