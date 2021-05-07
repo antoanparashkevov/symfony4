@@ -1,13 +1,20 @@
 <template>
-     <section v-if="isError">
-        <p class="text-bold text-danger">We are sorry, we are not able to retrieve this information right now!</p>
-    </section>
- 
-    <section v-else>
-        
-        <div v-if="isLoading"><h3 class="text-primary">Loading...</h3></div> 
+  <section>
 
-         <div v-else>
+    <app-add-category-modal ref="categoryDialog">
+
+    </app-add-category-modal>
+
+    <section v-if="isError">
+      <p class="text-bold text-danger">We are sorry, we are not able to retrieve this information right now!</p>
+    </section>
+
+    <section v-else-if="isLoading">
+
+      <div><h3 class="text-primary">No categories selected</h3></div>
+
+    </section>
+    <div v-else>
 
       <!-- <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 navbar-light bg-light border-bottom shadow-sm mb-3">
          <h3 class="text-dark my-0 mr-md-auto font-weight-normal">Create your offer, {{firstName}}</h3>
@@ -47,7 +54,7 @@
 
         </div>
 
-         <button class="btn btn-success">Save Offer</button>
+        <button class="btn btn-success">Save Offer</button>
       </div>
 
     </div>
@@ -60,6 +67,7 @@
 <script>
 
 import axios from 'axios';
+
 export default {
   name: "Form",
   components: {
@@ -99,8 +107,8 @@ export default {
       this.$refs.categoryDialog.open().then(r => {
         if (r) {
           console.log(r);
-         this.categories = r;
-         this.isLoading  = false
+          this.categories = r;
+          this.isLoading  = false
         }
       });
     }
