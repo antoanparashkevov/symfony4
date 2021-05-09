@@ -12,8 +12,8 @@
       ></b-form-checkbox-group>
     </b-form-group>
 
-    <b-button class="mt-3" variant="outline-danger" block @click="confirm">Add</b-button>
-    <b-button class="mt-2" variant="outline-warning" block @click="cancel">Cancel</b-button>
+    <b-button class="mt-3" variant="outline-success" block @click="confirm">Add</b-button>
+    <b-button class="mt-2" variant="outline-danger" block @click="cancel">Cancel</b-button>
   </b-modal>
 </template>
 

@@ -26,11 +26,6 @@ class Offer
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;
-
-    /**
-     * @ORM\Column(type="text")
-     */
     private $description;
 
     /**
@@ -55,17 +50,6 @@ class Offer
         return $this;
     }
 
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {

@@ -2,8 +2,10 @@
   <section>
 
     <app-add-category-modal ref="categoryDialog">
-
     </app-add-category-modal>
+    <app-save-offer-dialog ref="saveOffer">
+
+    </app-save-offer-dialog>
 
     <section v-if="isError">
       <p class="text-bold text-danger">We are sorry, we are not able to retrieve this information right now!</p>
@@ -54,7 +56,7 @@
 
         </div>
 
-        <button class="btn btn-success">Save Offer</button>
+        <button class="btn btn-success" @click="saveOffer()">Save Offer</button>
       </div>
 
     </div>
@@ -71,7 +73,8 @@ import axios from 'axios';
 export default {
   name: "Form",
   components: {
-    appAddCategoryModal: () => import('./AddCategory')
+    appAddCategoryModal: () => import('./AddCategory'),
+    appSaveOfferDialog: () => import('./SaveDialog'),
   },
   computed: {
     isDisabled() {
@@ -103,6 +106,20 @@ export default {
 
   },
   methods: {
+    saveOffer(){
+      let data = {
+        name:"",
+        description:"",
+        finalPrice:this.endPrice
+      }
+      this.$refs.saveOffer.open(data).then(r=>{
+        console.log(r);
+        axios.post("/api/offers.json",data).then(r=>{
+          window.location.replace('/offer');
+        })
+      });
+
+    },
     handleClick() {
       this.$refs.categoryDialog.open().then(r => {
         if (r) {
